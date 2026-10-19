@@ -1,30 +1,31 @@
 import { useState } from "react";
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
+import { v4 } from "uuid";
 
 function App() {
   const [tasks, setTasks] = useState([
     {
-      id: 1,
+      id: v4(),
       title: "Estudar programação",
       description: "Estudar ReactJS para melhorar minhas skills de front-end",
       isCompleted: false,
     },
     {
-      id: 2,
+      id: v4(),
       title: "Estudar inglês",
       description: "Estudar inglês para melhorar minhas skills de comunicação",
       isCompleted: false,
     },
     {
-      id: 3,
+      id: v4(),
       title: "Estudar estrutura de dados",
       description:
         "Estudar estrutura de dados para melhorar minhas skills de programação",
       isCompleted: false,
     },
     {
-      id: 4,
+      id: v4(),
       title: "Ler livros",
       description: "Ler livros para melhorar minhas skills de leitura",
       isCompleted: false,
@@ -48,18 +49,28 @@ function App() {
     setTasks(newTasks);
   }
 
+  function onAddTaskSubmit(title, description) {
+    const newTask = {
+      id: v4(),
+      title: title,
+      description: description,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <div className="w-screen h-screen bg-slate-500 flex justify-center p-6">
-      <div className="w-[500px]">
+      <div className="w-[500px] space-y-4">
         <h1 className="text-3xl text-slate-100 font-bold text-center">
-          Task manager
+          TASK MANAGER
         </h1>
+        <AddTask onAddTaskSubmit={onAddTaskSubmit} />
         <Tasks
           tasks={tasks}
           onTaskClick={onTaskClick}
           onTaskDelete={onTaskDelete}
         />
-        <AddTask />
       </div>
     </div>
   );
