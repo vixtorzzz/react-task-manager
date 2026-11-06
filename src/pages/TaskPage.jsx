@@ -12,7 +12,7 @@ function TaskPage() {
         <div className="flex justify-center relative mb-6">
           <button
             onClick={() => navigate(-1)}
-            className="bg-slate-400 text-white p-2 rounded-md ml-2 absolute left-0"
+            className="bg-slate-400 text-white p-2 rounded-md ml-2 absolute left-0 hover:scale-[1.02] transition-all duration-200"
           >
             <ChevronLeftIcon />
           </button>

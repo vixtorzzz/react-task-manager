@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Input from "./Input";
 
 function AddTask(props) {
   const [title, setTitle] = useState("");
@@ -6,24 +7,22 @@ function AddTask(props) {
 
   return (
     <div className="space-y-4 p-6 bg-slate-200 rounded-md shadow flex flex-col">
-      <input
-        className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
+      <Input
         type="text"
         placeholder="Digite o título da tarefa"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <input
-        className="border border-slate-300 outline-slate-400 px-4 py-2 rounded-md"
+      <Input
         type="text"
         placeholder="Digite a descrição da tarefa"
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
       <button
-        className="bg-slate-500 text-white px-4 py-2 font-medium rounded-md"
+        className="bg-slate-500 text-white px-4 py-2 font-medium rounded-md hover:scale-[1.02] transition-all duration-200 active:bg-green-600 select-none"
         onClick={() => {
-          // Verificando sem há valores preenchidos
+          // Verificando se há valores preenchidos
           if (!title.trim() || !description.trim()) {
             return alert(
               "Por favor, preencha todos os campos antes de adicionar!",

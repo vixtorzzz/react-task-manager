@@ -19,21 +19,21 @@ function Tasks(props) {
           <button
             onClick={() => props.onTaskClick(task.id)}
             className={
-              "bg-slate-400 text-left w-full text-white p-2 rounded-md" +
-              (task.isCompleted ? " line-through" : "")
+              "bg-slate-400 text-left w-full text-white p-2 rounded-md hover:scale-[1.02] transition-all duration-200" +
+              (task.isCompleted ? " line-through bg-slate-500" : "")
             }
           >
             {task.title}
           </button>
           <button
             onClick={() => onOpenTask(task)}
-            className="bg-slate-400 text-white p-2 rounded-md ml-2"
+            className="bg-slate-500 text-white p-2 rounded-md ml-2 hover:scale-[1.02] transition-all duration-200"
           >
             <ChevronRightIcon />
           </button>
           <button
             onClick={() => props.onTaskDelete(task.id)}
-            className="bg-slate-400 text-white p-2 rounded-md ml-2"
+            className="bg-red-600 text-white p-2 rounded-md ml-2 hover:scale-[1.02] transition-all duration-200"
           >
             <TrashIcon />
           </button>
